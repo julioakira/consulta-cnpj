@@ -1,0 +1,11 @@
+{
+    "defaultSeverity": "error",
+    "extends": ["airbnb", "airbnb-typescript"],
+    "jsRules": {},
+    "rules": {
+        "space-before-function-paren": false,
+        "eofline": false,
+        "semicolon":false
+    },
+    "rulesDirectory": []
+}
