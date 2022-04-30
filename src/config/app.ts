@@ -7,6 +7,7 @@ import http from 'http'
 
 import './bootstrap'
 import routes from '../routes/routes'
+import DatabaseDataSource from '../database/database'
 
 class App {
   public app: express.Application
@@ -15,6 +16,7 @@ class App {
     this.app = express()
     this.server = new http.Server(this.app)
     this.config()
+    this.database()
     this.parsing()
     this.middlewares()
     this.routes()
@@ -24,6 +26,17 @@ class App {
   private config(): void {
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: false }))
+  }
+
+  private database(): void {
+    DatabaseDataSource
+      .initialize()
+      .then(() => {
+        console.log('Database initialized')
+      })
+      .catch((err) => {
+        console.error(`Error During database initialization: ${err}`);
+      })
   }
 
   private middlewares(): void {

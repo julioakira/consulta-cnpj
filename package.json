@@ -13,9 +13,6 @@
   ],
   "scripts": {
     "build": "tsc",
-    "prepare": "yarn run compile",
-    "pretest": "yarn run compile",
-    "posttest": "yarn run lint",
     "clean": "rimraf dist build",
     "dev": "tsc-watch --onSuccess 'node dist/server.js'",
     "exec": "yarn build && node dist/server.js"
@@ -30,8 +27,11 @@
     "http": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
+    "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
+    "sqlite3": "^5.0.6",
     "tsc-watch": "^5.0.3",
+    "typeorm": "^0.3.6",
     "typescript": "^4.0.3",
     "youch": "^3.1.1"
   },

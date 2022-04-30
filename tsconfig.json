@@ -6,8 +6,9 @@
     "pretty": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
   "include": [
     "src/**/*.ts",
