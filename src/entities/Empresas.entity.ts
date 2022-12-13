@@ -1,10 +1,10 @@
 import { Column, Entity } from 'typeorm'
-import { BaseEntity } from './base_entity'
+import BaseEntity from './BaseEntity'
 
-@Entity()
+@Entity({name:'Empresas', synchronize: false})
 export default class Empresas extends BaseEntity {
   @Column({ unique: true})
-  public cnpj: string
+  public cnpj_base: string
 
   @Column()
   public razao_social: string
@@ -16,11 +16,11 @@ export default class Empresas extends BaseEntity {
   public qualificacao_responsavel: string
 
   @Column()
-  public capital_social: string
-
-  @Column()
-  public porte: string
-
+  public porte_empresa: string
+  
   @Column()
   public ente_federativo_responsavel: string
+  
+  @Column()
+  public capital_social: number
 }

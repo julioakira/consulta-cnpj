@@ -6,8 +6,8 @@ import bodyParser from 'body-parser'
 import http from 'http'
 
 import './bootstrap'
-import routes from '../routes/routes'
-import DatabaseDataSource from '../database/database'
+import routes from '../routes/Routes'
+import DatabaseDataSource from '../database/DatabaseDataSource'
 
 class App {
   public app: express.Application

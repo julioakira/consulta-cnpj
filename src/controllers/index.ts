@@ -1,1 +1,1 @@
-export { default as BaseController } from './base_controller'
+export { default as EmpresasController } from './EmpresasController'
