@@ -9,3 +9,13 @@ declare namespace NodeJS {
     DB_NAME: string,
   }
 }
+
+type EmpresasRequest = {
+  cnpj: string
+}
+
+type EmpresasResponse = {
+  status: boolean,
+  message: string,
+  data: Empresas | {}
+}

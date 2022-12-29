@@ -42,6 +42,11 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
+"@julioakira/cpf-cnpj-utils@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@julioakira/cpf-cnpj-utils/-/cpf-cnpj-utils-1.0.1.tgz#b66b5df2776ae895da9aceac7d3b12db1d09fb66"
+  integrity sha512-6FsUx8QjoGKfzJ/S66dHctddGGinTHh1+ze594HE83F43yBghWaDNpkfsk1JEgA2NPMox1czyeY5NhjeKKIZ+w==
+
 "@sqltools/formatter@^1.2.2":
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/@sqltools/formatter/-/formatter-1.2.5.tgz#3abc203c79b8c3e90fd6c156a0c62d5403520e12"
