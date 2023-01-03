@@ -43,9 +43,9 @@
     tslib "^1.8.1"
 
 "@julioakira/cpf-cnpj-utils@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@julioakira/cpf-cnpj-utils/-/cpf-cnpj-utils-1.0.1.tgz#b66b5df2776ae895da9aceac7d3b12db1d09fb66"
-  integrity sha512-6FsUx8QjoGKfzJ/S66dHctddGGinTHh1+ze594HE83F43yBghWaDNpkfsk1JEgA2NPMox1czyeY5NhjeKKIZ+w==
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@julioakira/cpf-cnpj-utils/-/cpf-cnpj-utils-1.0.2.tgz#3c55de55f0a4f033192cabd997a7997685eec4e8"
+  integrity sha512-g3Hj4X05P3bdIadgetpwK/DwMKslx9SUCYPUJJgP/EtQ7oC8u7IMJ1m9qISAhdCf+kdSh7SQFew3EJllCAwmtw==
 
 "@sqltools/formatter@^1.2.2":
   version "1.2.5"

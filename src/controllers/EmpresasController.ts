@@ -21,7 +21,7 @@ class EmpresasController {
     const cnpj_base: string = Utils.GetBaseCNPJ(cnpj);
     const repo = DatabaseDataSource.getRepository(Empresas);
     const data = await repo.findOne({
-      where: { cnpj_base }
+      where: { cnpj: cnpj_base }
     });
     resp.status = true;
     resp.message = 'Consulta efetuada com sucesso';
