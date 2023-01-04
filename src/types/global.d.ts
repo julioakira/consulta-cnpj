@@ -10,12 +10,19 @@ declare namespace NodeJS {
   }
 }
 
-type EmpresasRequest = {
+type BaseIdentity = {
+  id_cnpj: number,
+}
+
+interface DataQueryingController {
+  public index(req: Request<RequestByCNPJ>, res: Response<T>): Promise<Response<T>>
+}
+
+type DataQueryingRequest = {
   cnpj: string
 }
 
-type EmpresasResponse = {
+type DefaultResponse = {
   status: boolean,
   message: string,
-  data: Empresas | {}
 }

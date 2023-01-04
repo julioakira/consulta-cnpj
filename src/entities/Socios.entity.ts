@@ -31,8 +31,8 @@ export default class Socios extends BaseEntity {
   public nome_representante_legal: string
 
   @Column()
-  id_qualificao_representante_legal: string
+  public id_qualificao_representante_legal: string
 
   @Column()
-  id_faixa_etaria: number
+  public id_faixa_etaria: number
 }

@@ -4,6 +4,6 @@ import { EmpresasController } from '../controllers'
 
 const Routes = Router()
 
-Routes.post('/test', EmpresasController.index)
+Routes.post('/empresas', EmpresasController.index)
 
 export default Routes
