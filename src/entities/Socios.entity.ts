@@ -1,12 +1,16 @@
 import { Column, Entity } from 'typeorm'
-import BaseEntity from './BaseEntity'
+
+import BaseEntityIdentity from './BaseEntityIdentity'
 
 @Entity({ name: 'socios', synchronize: false })
-export default class Socios extends BaseEntity {
-  @Column({ unique: true })
+export default class Socios extends BaseEntityIdentity {
+  @Column({ type: 'int' })
+  public id_cnpj: number
+
+  @Column({ length: 8})
   public cnpj: string
 
-  @Column()
+  @Column({ type: 'int' })
   public id_tipo_socio: number
 
   @Column()
@@ -16,7 +20,7 @@ export default class Socios extends BaseEntity {
   public cpf_cnpj: string
 
   @Column()
-  public id_qualificao: string
+  public id_qualificacao: string
 
   @Column({ type: 'timestamp' })
   public data_entrada: Date
@@ -31,8 +35,8 @@ export default class Socios extends BaseEntity {
   public nome_representante_legal: string
 
   @Column()
-  public id_qualificao_representante_legal: string
+  public id_qualificacao_representante_legal: string
 
-  @Column()
+  @Column({ type: 'int' })
   public id_faixa_etaria: number
 }

@@ -1,11 +1,13 @@
 import { Request, Response } from 'express'
+import { CNPJ } from '@julioakira/cpf-cnpj-utils';
+
 import DatabaseDataSource from '../database/DatabaseDataSource';
 import Empresas from '../entities/Empresas.entity';
 import Utils from '../utils/Utils';
 
-import { CNPJ } from '@julioakira/cpf-cnpj-utils';
 
 type Empresa = BaseIdentity & {
+  id_cnpj: number,
   cnpj: string
   razao_social: string
   id_natureza_juridica: string
@@ -46,6 +48,7 @@ class EmpresasController implements DataQueryingController {
       return res.status(400).json(resp);
     } catch (err) {
       console.error(err);
+      resp.message = 'Ocorreu um erro ao processar a consulta.';
       return res.status(400).json(resp);
     }
   }

@@ -6,6 +6,7 @@ CREATE DATABASE IF NOT EXISTS consulta_cnpj CHARACTER SET latin2 COLLATE latin2_
 USE consulta_cnpj;
 
 CREATE TABLE IF NOT EXISTS empresas (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   id_cnpj INT NOT NULL,
   cnpj VARCHAR(8) NOT NULL,
   razao_social TEXT NULL,
@@ -17,6 +18,7 @@ CREATE TABLE IF NOT EXISTS empresas (
 );
 
 CREATE TABLE IF NOT EXISTS estabelecimentos (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   id_cnpj INT NOT NULL,
   cnpj VARCHAR(8) NOT NULL,
   cnpj_ordem VARCHAR(4) NOT NULL,
@@ -51,6 +53,7 @@ CREATE TABLE IF NOT EXISTS estabelecimentos (
 );
 
 CREATE TABLE IF NOT EXISTS simples (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   id_cnpj INT NOT NULL,
   cnpj VARCHAR(8) NOT NULL,
   opcao_pelo_simples VARCHAR(1) NULL,
@@ -62,6 +65,7 @@ CREATE TABLE IF NOT EXISTS simples (
 );
 
 CREATE TABLE IF NOT EXISTS socios (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   id_cnpj INT NOT NULL,
   cnpj VARCHAR(8) NOT NULL,
   id_tipo_socio INT NULL,
@@ -76,37 +80,50 @@ CREATE TABLE IF NOT EXISTS socios (
   id_faixa_etaria INT NULL
 );
 
-CREATE TABLE IF NOT EXISTS paises (id TEXT NOT NULL, pais TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS paises (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_pais TEXT NOT NULL,
+  pais TEXT NOT NULL
+  );
 
 CREATE TABLE IF NOT EXISTS qualificacoes_de_socios (
-  id TEXT NOT NULL,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_qualificacao TEXT NOT NULL,
   qualificacao_de_socio TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS naturezas_juridicas (
-  id TEXT NOT NULL,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_natureza TEXT NOT NULL,
   natureza_juridica TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS cnaes (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   cnae VARCHAR(7) NOT NULL,
   cnae_descricao TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS motivos (
-  id TEXT NOT NULL,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_motivo TEXT NOT NULL,
   motivo_situacao_cadastral TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS municipios (
-  id TEXT NOT NULL,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_municipio TEXT NOT NULL,
   municipio TEXT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS portes (id INT NOT NULL, porte TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS portes (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_porte INT NOT NULL,
+  porte TEXT NOT NULL
+  );
 
 INSERT INTO
-  portes (id, porte)
+  portes (id_porte, porte)
 VALUES
   (1, 'N/I'),
   (2, 'Micro Empresa'),
@@ -114,23 +131,25 @@ VALUES
   (5, 'Outros');
 
 CREATE TABLE matriz_filiais (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_matriz INT NOT NULL,
   matriz_filial TEXT NOT NULL
 );
 
 INSERT INTO
-  matriz_filiais (id, matriz_filial)
+  matriz_filiais (id_matriz, matriz_filial)
 VALUES
   (1, 'Matriz'),
   (2, 'Filial');
 
 CREATE TABLE situacoes_cadastrais (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_situacao INT NOT NULL,
   situacao_cadastral TEXT NOT NULL
 );
 
 INSERT INTO
-  situacoes_cadastrais (id, situacao_cadastral)
+  situacoes_cadastrais (id_situacao, situacao_cadastral)
 VALUES
   (1, 'Nula'),
   (2, 'Ativa'),
@@ -139,24 +158,26 @@ VALUES
   (8, 'Baixada');
 
 CREATE TABLE tipos_socios (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_socio INT NOT NULL,
   tipo_socio TEXT NOT NULL
 );
 
 INSERT INTO
-  tipos_socios (id, tipo_socio)
+  tipos_socios (id_socio, tipo_socio)
 VALUES
   (1, 'Pessoa Juridica'),
   (2, 'Pessoa Fisica'),
   (3, 'Estrangeiro');
 
 CREATE TABLE faixas_etarias (
-  id INT PRIMARY KEY,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_faixa_etaria INT NOT NULL,
   faixa_etaria TEXT NOT NULL
 );
 
 INSERT INTO
-  faixas_etarias (id, faixa_etaria)
+  faixas_etarias (id_faixa_etaria, faixa_etaria)
 VALUES
   (1, '0 a 12 anos'),
   (2, '13 a 20 anos'),

@@ -11,7 +11,7 @@ declare namespace NodeJS {
 }
 
 type BaseIdentity = {
-  id_cnpj: number,
+  id: number,
 }
 
 interface DataQueryingController {

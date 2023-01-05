@@ -1,4 +1,5 @@
 -- Learn how to make nullables
+SET GLOBAL local_infile=1;
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_empresas.csv' INTO table empresas FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (
   @cnpj_basico,
   @razao_social,
@@ -119,27 +120,27 @@ SET
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_motivo.csv' INTO TABLE motivos FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (@codigo, @descricao)
 SET
-  motivos.id = @codigo,
+  motivos.id_motivo = @codigo,
   motivos.motivo_situacao_cadastral = @descricao;
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_municipio.csv' INTO TABLE municipios FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (@codigo, @descricao)
 SET
-  municipios.id = @codigo,
+  municipios.id_municipio = @codigo,
   municipios.municipio = @descricao;
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_natureza_juridica.csv' INTO TABLE naturezas_juridicas FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (@codigo, @descricao)
 SET
-  naturezas_juridicas.id = @codigo,
+  naturezas_juridicas.id_natureza = @codigo,
   naturezas_juridicas.natureza_juridica = @descricao;
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_pais.csv' INTO TABLE paises FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (@codigo, @descricao)
 SET
-  paises.id = @codigo,
+  paises.id_pais = @codigo,
   paises.pais = @descricao;
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_qualificacao_socio.csv' INTO TABLE qualificacoes_de_socios FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (@codigo, @descricao)
 SET
-  qualificacoes_de_socios.id = @codigo,
+  qualificacoes_de_socios.id_qualificacao = @codigo,
   qualificacoes_de_socios.qualificacao_de_socio = @descricao;
 
 LOAD DATA LOCAL INFILE '/home/akira/databases/csv/samples/sample_simples.csv' INTO TABLE simples FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 LINES (

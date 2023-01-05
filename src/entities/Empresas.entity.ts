@@ -1,9 +1,13 @@
 import { Column, Entity } from 'typeorm'
-import BaseEntity from './BaseEntity'
+
+import BaseEntityIdentity from './BaseEntityIdentity'
 
 @Entity({ name: 'empresas', synchronize: false })
-export default class Empresas extends BaseEntity {
-  @Column({ unique: true })
+export default class Empresas extends BaseEntityIdentity {
+  @Column({ type: 'int' })
+  public id_cnpj: number
+
+  @Column({ length: 8 })
   public cnpj: string
 
   @Column()
@@ -12,13 +16,13 @@ export default class Empresas extends BaseEntity {
   @Column()
   public id_natureza_juridica: string
 
-  @Column()
+  @Column({ type: 'int' })
   public id_qualificacao: number
 
-  @Column()
+  @Column({ type: 'bigint' })
   public capital_social: number
 
-  @Column()
+  @Column({ type: 'int' })
   public id_porte: number
 
   @Column()
