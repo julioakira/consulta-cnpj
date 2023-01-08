@@ -5,7 +5,7 @@ import Estabelecimentos from '../entities/Estabelecimentos.entity';
 
 import Utils from '../utils/Utils';
 
-type Estabelecimento = BaseIdentity & {
+type EstabelecimentoTemplate = BaseIdentity & {
   id_cnpj: number,
   cnpj: string,
   cnpj_ordem: string,
@@ -40,7 +40,7 @@ type Estabelecimento = BaseIdentity & {
 }
 
 type EstabelecimentosResponse = DefaultResponse & {
-  data: Estabelecimento[] | []
+  data: EstabelecimentoTemplate[] | []
 }
 
 class EstabelecimentosController implements DataQueryingController {

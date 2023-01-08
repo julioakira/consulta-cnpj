@@ -6,7 +6,7 @@ import Empresas from '../entities/Empresas.entity';
 import Utils from '../utils/Utils';
 
 
-type Empresa = BaseIdentity & {
+type EmpresaTemplate = BaseIdentity & {
   id_cnpj: number,
   cnpj: string
   razao_social: string
@@ -18,7 +18,7 @@ type Empresa = BaseIdentity & {
 }
 
 type EmpresasResponse = DefaultResponse & {
-  data: Empresa | {}
+  data: EmpresaTemplate | []
 }
 
 class EmpresasController implements DataQueryingController {
@@ -26,7 +26,7 @@ class EmpresasController implements DataQueryingController {
     const resp: EmpresasResponse = {
       status: false,
       message: 'CNPJ inválido',
-      data: {}
+      data: []
     };
     try {
       const { cnpj } = req.body;
@@ -41,7 +41,7 @@ class EmpresasController implements DataQueryingController {
         resp.message = 'Consulta efetuada com sucesso';
         data
           ? resp.data = data
-          : resp.data = {};
+          : resp.data = [];
 
         return res.status(200).json(resp);
       }
