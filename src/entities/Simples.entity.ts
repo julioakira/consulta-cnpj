@@ -2,13 +2,13 @@ import { Entity, Column } from 'typeorm';
 
 import BaseEntityIdentity from './BaseEntityIdentity';
 
-export enum YesOrNo {
+enum YesOrNo {
   'S' = 'Sim',
   'N' = 'Não'
 };
 
 @Entity({ name: 'simples', synchronize: false })
-export class Simples extends BaseEntityIdentity {
+export default class Simples extends BaseEntityIdentity {
   @Column({ type: 'int' })
   public id_cnpj: number
 

@@ -5,47 +5,9 @@ import Estabelecimentos from '../entities/Estabelecimentos.entity';
 
 import Utils from '../utils/Utils';
 
-type EstabelecimentoTemplate = BaseIdentity & {
-  id_cnpj: number,
-  cnpj: string,
-  cnpj_ordem: string,
-  cnpj_digito_verificador: string,
-  id_matriz_filial: number,
-  nome_fantasia: string,
-  id_situacao_cadastral: number,
-  data_situacao_cadastral: Date,
-  id_motivo_situacao_cadastral: string,
-  nome_cidade_exterior: string,
-  id_pais: string,
-  data_inicio_atividade: Date,
-  id_cnae_principal: string,
-  lista_cnaes_secundarias: string,
-  tipo_logradouro: string,
-  logradouro: string,
-  numero: string,
-  complemento: string,
-  bairro: string,
-  cep: string,
-  uf: string,
-  id_municipio: string,
-  ddd1: string,
-  telefone1: string,
-  ddd2: string,
-  telefone2: string,
-  ddd_fax: string,
-  fax: string,
-  email: string,
-  situacao_especial: string,
-  data_situacao_especial: Date,
-}
-
-type EstabelecimentosResponse = DefaultResponse & {
-  data: EstabelecimentoTemplate[] | []
-}
-
 class EstabelecimentosController implements DataQueryingController {
-  public async index(req: Request<DataQueryingRequest>, res: Response<EstabelecimentosResponse>): Promise<Response<EstabelecimentosResponse>> {
-    const resp: EstabelecimentosResponse = {
+  public async index(req: Request<DataQueryingRequest>, res: Response<DefaultResponse<Estabelecimentos>>): Promise<Response<DefaultResponse<Estabelecimentos>>> {
+    const resp: DefaultResponse<Estabelecimentos> = {
       status: false,
       message: 'CNPJ inválido',
       data: [],

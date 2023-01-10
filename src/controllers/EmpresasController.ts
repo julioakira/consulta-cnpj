@@ -5,25 +5,9 @@ import DatabaseDataSource from '../database/DatabaseDataSource';
 import Empresas from '../entities/Empresas.entity';
 import Utils from '../utils/Utils';
 
-
-type EmpresaTemplate = BaseIdentity & {
-  id_cnpj: number,
-  cnpj: string
-  razao_social: string
-  id_natureza_juridica: string
-  id_qualificacao: number
-  capital_social: number
-  id_porte: number
-  ente_federativo_responsavel: string
-}
-
-type EmpresasResponse = DefaultResponse & {
-  data: EmpresaTemplate | []
-}
-
 class EmpresasController implements DataQueryingController {
-  public async index(req: Request<DataQueryingRequest>, res: Response<EmpresasResponse>): Promise<Response<EmpresasResponse>> {
-    const resp: EmpresasResponse = {
+  public async index(req: Request<DataQueryingRequest>, res: Response<DefaultResponse<Empresas>>): Promise<Response<DefaultResponse<Empresas>>> {
+    const resp: DefaultResponse<Empresas> = {
       status: false,
       message: 'CNPJ inválido',
       data: []
@@ -33,7 +17,7 @@ class EmpresasController implements DataQueryingController {
       if (cnpj && CNPJ.Validate(cnpj)) {
         const cnpj_base = Utils.GetBaseCNPJ(cnpj);
         const repo = DatabaseDataSource.getRepository(Empresas);
-        const data = await repo.findOne({
+        const data = await repo.find({
           where: { cnpj: cnpj_base }
         });
 

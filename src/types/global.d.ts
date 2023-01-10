@@ -14,15 +14,16 @@ type BaseIdentity = {
   id: number,
 }
 
-interface DataQueryingController {
-  public index(req: Request<RequestByCNPJ>, res: Response<T>): Promise<Response<T>>
-}
-
 type DataQueryingRequest = {
   cnpj: string
 }
 
-type DefaultResponse = {
+interface DataQueryingController {
+  public index(req: Request<DataQueryingRequest>, res: Response<T>): Promise<Response<T>>
+}
+
+type DefaultResponse<T> = {
   status: boolean,
   message: string,
+  data: T[] | []
 }

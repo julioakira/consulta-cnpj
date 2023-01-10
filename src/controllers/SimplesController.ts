@@ -1,28 +1,13 @@
 import { Request, Response } from 'express';
 import { CNPJ } from '@julioakira/cpf-cnpj-utils';
 
-import { Simples, YesOrNo } from '../entities/Simples.entity';
+import Simples from '../entities/Simples.entity';
 import Utils from '../utils/Utils';
 import DatabaseDataSource from '../database/DatabaseDataSource';
 
-type SimplesTemplate = BaseIdentity & {
-  id_cnpj: number,
-  cnpj: string,
-  opcao_pelo_simples: YesOrNo,
-  data_opcao_pelo_simples: Date,
-  data_exclusao_do_simples: Date,
-  opcao_pelo_mei: YesOrNo,
-  data_opcao_pelo_mei: Date,
-  data_entrada_do_mei: Date,
-};
-
-type SimplesResponse = DefaultResponse & {
-  data: SimplesTemplate[] | []
-}
-
 class SimplesController implements DataQueryingController {
-  public async index(req: Request<DataQueryingController>, res: Response<SimplesResponse>): Promise<Response<SimplesResponse>> {
-    const resp: SimplesResponse = {
+  public async index(req: Request<DataQueryingController>, res: Response<DefaultResponse<Simples>>): Promise<Response<DefaultResponse<Simples>>> {
+    const resp: DefaultResponse<Simples> = {
       status: false,
       message: 'CNPJ inválido',
       data: []
